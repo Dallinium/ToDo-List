@@ -1,0 +1,163 @@
+/* font-family: 'Dancing Script', cursive;
+font-family: 'Quicksand', sans-serif; */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: #a0daa9;
+    color: whitesmoke;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-top: 2em;
+    margin-bottom: .5em;
+}
+
+form,
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.break {
+    flex: 100%;
+    height: 0;
+}
+
+.error {
+    color: crimson;
+    font-weight: 700;
+    width: 400px;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+.todo-ul {
+    list-style: none;
+    width: 27em;
+    /* border: blueviolet solid 1px; */
+    margin-top: 1em;
+}
+
+.todo-div {
+    display: flex;
+    margin: .3em;
+    justify-content: space-between;
+    align-items: center;
+    /* transitions when clicked on- default? */
+    transition: all .5s ease;
+}
+
+li {
+    flex: 1;
+    margin-right: .5em;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input,
+form button {
+    padding: .2em;
+    font-size: 1.3rem;
+    border: none;
+    color: #ffb3b3;
+
+}
+
+form button {
+    cursor: pointer;
+    /* transitions when hover because of form button:hover */
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background-color: #ffb3b3;
+    color: whitesmoke;
+}
+
+.complete-btn,
+.delete-btn {
+    border: none;
+    color: white;
+    background-color: #a0daa9;
+    font-size: 1em;
+    padding: .4em;
+    cursor: pointer;
+}
+
+.todo-input {
+    padding-left: .5em;
+    padding-right: .5em;
+
+}
+
+/* without this when click on icon it wouldn't perform the function for that button, since icon is not associated with button action; makes icon unclickable (ignores icon) */
+.fas {
+    pointer-events: none;
+}
+
+.fall {
+    transform: translateY(8em) rotateZ(20deg);
+    opacity: .5;
+    transition: all .5s;
+}
+
+select {
+    appearance: none;
+    outline: none;
+    border: none;
+    width: 10em;
+    cursor: pointer;
+    padding: .5em;
+    color: #ffb3b3;
+
+}
+
+.select {
+    margin: 1em;
+    /* set as parent for .select::after's absolute */
+    position: relative;
+    overflow: hidden;
+
+}
+
+.select::after {
+    /* add down arrow */
+    content: "\25bc";
+
+    /* to be able to move down arrow position (top, right); position is set there to still sit in the list clickable area */
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: whitesmoke;
+    color: #ffb3b3;
+    pointer-events: none;
+    padding: .4em;
+    transition: all .5s ease;
+}
+
+.select:hover::after {
+    background-color: #ffb3b3;
+    color: whitesmoke;
+}
